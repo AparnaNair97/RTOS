@@ -8,8 +8,13 @@ Timing analysis tells us that all of the processes are in fact close to promptly
 ## Table:
 
 No. of Clients - Time Taken
+
 1              - 0.000116 seconds
+
 2              - 0.000197 seconds
+
 3              - 0.000231 seconds
+
 4              - 0.000240 seconds
+
 5              - 0.000240 seconds
