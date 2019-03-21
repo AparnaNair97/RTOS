@@ -1,6 +1,4 @@
 The idea for me to implement the co routine is as follows.
-We will create threads. And the threads are to communicate with each other. We will use a global variable to store the context. So when we access it that becomes the critical section. And then we use that to synchronize the threads. Here, what I mean when i say context is merely the next player who has to play. 
-
-I am facing difficulty in synchornizing the threads. They fail to happen one after the other as is required. Perhaps a bit of tweaking is required, and I am working on it.
-
-The first version of the code is uploaded for now. It is by no means complete and requires much more effort on my part.
+We will create threads. And the threads are to communicate with each other. We will lock the state variable which tells us whether or not the necessary information needed for the routine has come or not. (In our case we keep a track of the players.)
+So the code has 4 state variables which tell us if a particular player's turn has come or not and then the corresponding thread starts execution. 
+Thr threads are looped indefinitely and will end only when we get at least one winner. After which the program tells us the winner and exits the program. 
