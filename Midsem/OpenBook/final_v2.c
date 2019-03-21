@@ -14,6 +14,8 @@ int s_end[3] = {78,60,7}; //snakes tail
 int l_start[3] = {20,28,71}; //ladder down
 int l_end[3] = {38,84,91}; //ladder up
 
+void exit_func(int i);
+
 //this functions essentially just computes the updated location with the die
 //roll and checks if the person won or not. Or if the person rolled too high
 //a number (which means they don't move forward). Or if they encountered a
@@ -135,7 +137,7 @@ void close_fin(){
 	pthread_join(tid[1], NULL);
 	pthread_join(tid[2], NULL);
 	pthread_join(tid[3], NULL);
-	pthread_mutex_destroy(&lock);
+	// pthread_mutex_destroy(&lock);
 }
 
 
@@ -144,7 +146,8 @@ void close_fin(){
 void exit_func(int i){
 	printf("Player %d wins!\n",i);
 	printf("Positions: p1=%d, p3=%d, p3=%d, p4=%d\n",p[0],p[1],p[2],p[3]);
-	close_fin();
+	pthread_mutex_destroy(&lock);
+	exit(0);
 }
 
 
@@ -152,7 +155,7 @@ int main()
 {
 	setup();
 	// __next__send();
-	printf("Positions: p1=%d, p3=%d, p3=%d, p4=%d\n",p[0],p[1],p[2],p[3]);
+	// printf("Positions: p1=%d, p3=%d, p3=%d, p4=%d\n",p[0],p[1],p[2],p[3]);
 	close_fin();
 	return 0;
 }
