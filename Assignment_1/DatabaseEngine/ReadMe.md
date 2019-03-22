@@ -7,14 +7,10 @@ Similar observations as the Echo Engine were made. The timings were close to the
 
 ## Table:
 
-No. of Clients - Time Taken
-
-1              - 0.000134 seconds
-
-2              - 0.000130 seconds
-
-3              - 0.000129 seconds
-
-4              - 0.000195 seconds
-
-5              - 0.000218 seconds
+No. of Clients | Time Taken        
+---------------|-------------------
+1|0.000134 seconds
+2|0.000130 seconds
+3| 0.000129 seconds
+4|0.000195 seconds
+5| 0.000218 seconds  
