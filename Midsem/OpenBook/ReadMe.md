@@ -1,4 +1,12 @@
-The idea for me to implement the co routine is as follows.
-We will create threads. And the threads are to communicate with each other. We will lock the state variable which tells us whether or not the necessary information needed for the routine has come or not. (In our case we keep a track of the players.)
-So the code has 4 state variables which tell us if a particular player's turn has come or not and then the corresponding thread starts execution. 
-Thr threads are looped indefinitely and will end only when we get at least one winner. After which the program tells us the winner and exits the program. 
+# Background:
+Coroutines are computer program components that generalize subroutines for non-preemptive multitasking, by allowing execution to be suspended and resumed. (https://en.wikipedia.org/wiki/Coroutine)
+
+# Implementation of Coroutines:
+To implement a co coroutine in C we used threads. We used the locking mechanisms of threads to simulate the yield and send functions.
+Each thread executes and then pauses at yield. At yield, the lock corresponding to the thread under consideration is locked.
+After send() is called. send() basically unlocks that particular lock and transfers control to the next thread.
+
+# Implementation of the Game:
+Each player gets his own thread (or coroutine). And then they synchronize so that the round robin fashion in which the game is played is maintained. I use state variables which tell me which player's turn it is now. 
+
+
